@@ -1,0 +1,100 @@
+#include "../include/LinkedList.h"
+
+/* 
+
+You should only implement findMiddleNode() function in this file and submit it.
+
++======================================================+
+| Description:                                         |
+| - Find the middle node of the linked list            |
+| - Return type: Node*                                 |
+|                                                      |
+| Tips:                                                |
+| - Use two pointers: 'slow' and 'fast'                |
+| - 'slow' moves one step, 'fast' moves two            |
+| - When 'fast' reaches the end, 'slow' is at middle   |
+| - Return 'slow' as the middle node                   |
++======================================================+
+
+Implement a member function, findMiddleNode(), which finds
+and returns the middle node of the linked list.
+
+Note: this LinkedList implementation does not have a length
+member variable.
+
+Function Signature:
+
+Node* findMiddleNode();
+
+Input:
+
+The linked list can have any number of nodes (0 to n).
+
+Node values are integers.
+
+Output:
+
+Return a pointer to the middle node of the linked list.
+
+If the list has an even number of nodes, return the second middle
+node (the one closer to the end).
+
+Constraints:
+
+You are not allowed to use any additional data structures
+(such as arrays) or modify the existing data structure.
+
+You can only traverse the linked list once.
+
+Example:
+
+Suppose you have a LinkedList object, list, with the following values:
+1 -> 2 -> 3 -> 4 -> 5
+
+After calling the findMiddleNode() function:
+
+Node* middle = list.findMiddleNode();
+
+The middle pointer should point to the node with value 3.
+
+Now suppose you have a LinkedList object, list, with the following values:
+1 -> 2 -> 3 -> 4 -> 5 -> 6
+
+After calling the findMiddleNode() function:
+
+Node* middle = list.findMiddleNode();
+
+The middle pointer should point to the node with value 4.
+
+Pseudo Code:
+
+Create a function named 'findMiddleNode' that returns a
+pointer to a Node
+
+Initialize two pointers, 'slow' and 'fast', both pointing
+to the head of the list
+
+While 'fast' is not null and the 'next' pointer of 'fast' is
+not null, do the following:
+
+Move 'slow' one step forward (slow = slow->next)
+
+Move 'fast' two steps forward (fast = fast->next->next)
+
+When the loop terminates, 'slow' will be pointing to the
+middle node of the list
+
+Return the 'slow' pointer
+*/
+
+Node* LinkedList::findMiddleNode() {
+// Your implementation comes here
+    Node* slow = head;
+    Node* fast = head;
+
+    while (fast != nullptr && fast->next != nullptr) {
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+    return slow; // Placeholder (you should update when the implementation is complete)
+};
